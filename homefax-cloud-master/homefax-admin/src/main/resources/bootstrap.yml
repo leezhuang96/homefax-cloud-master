@@ -1,0 +1,53 @@
+spring:
+  application:
+    name: homefax-admin
+  profiles:
+    active:
+      - secure
+  cloud:
+    config:
+      discovery:
+        enabled: true
+        service-id: homefax-config
+      profile: dev
+
+# tag::configuration-eureka[]
+eureka:   #<1>
+  instance:
+    health-check-url-path: /actuator/health   #应用实例的相对运行状况检查URL路径默认为 /info/health ，2.0后actuator的地址发生了变化
+  client:
+    serviceUrl:
+      #defaultZone: http://129.211.13.217:8761/eureka/  #注册到 EurekaServer
+      defaultZone: http://localhost:8761/eureka/  #注册到 EurekaServer
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"  #暴露所有的端点我们可以看到更多应用相关信息
+  endpoint:
+    health:
+      show-details: ALWAYS  #health endpoint是否必须显示全部细节
+server:
+  port: 8086
+# end::configuration-eureka[]
+
+---
+spring:
+  profiles: insecure
+
+---
+# admin登录的用户名和密码
+spring:
+  profiles: secure
+  security:
+    user:
+      name: "homefax"
+      password: "aa1111"
+
+# 注册给eureka的时候告诉eureka自己的密码
+eureka:
+  instance:
+    metadata-map:
+      "user.name": ${spring.security.user.name}         #These two are needed so that the server
+      "user.password": ${spring.security.user.password} #can access the protected client endpoints

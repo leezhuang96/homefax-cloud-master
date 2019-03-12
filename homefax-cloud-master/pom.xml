@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>2.0.2.RELEASE</version>
+		<relativePath/> <!-- lookup parent from repository -->
+	</parent>
+	<groupId>com.homefax</groupId>
+	<artifactId>homefax-cloud</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>pom</packaging>
+	<name>homefax-cloud</name>
+	<description>Demo project for Spring Boot</description>
+
+	<modules>
+		<module>homefax-model</module>
+		<module>homefax-eureka</module>
+		<module>homefax-config</module>
+		<module>homefax-gateway</module>
+		<module>homefax-admin</module>
+		<module>homefax-api</module>
+		<module>homefax-baseserver</module>
+	</modules>
+
+	<properties>
+		<java.version>1.8</java.version>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<java.version>1.8</java.version>
+		<spring-cloud.version>Finchley.RELEASE</spring-cloud.version>
+		<lombok.version>1.18.2</lombok.version>
+		<springboot.start.web>2.0.2.RELEASE</springboot.start.web>
+		<mysql.version>6.0.6</mysql.version>
+		<mybatis.springboot>1.3.2</mybatis.springboot>
+		<druid.springboot>1.1.9</druid.springboot>
+		<jdbc.version>2.0.2.RELEASE</jdbc.version>
+		<pagehelper.springboot>1.2.3</pagehelper.springboot>
+		<mybatis.generator>1.3.2</mybatis.generator>
+		<mapper.springboot>1.2.4</mapper.springboot>
+		<springboot.redis>2.0.3.RELEASE</springboot.redis>
+		<springcloud.bus>2.0.0.RELEASE</springcloud.bus>
+		<logback.condition>2.7.8</logback.condition>
+		<springcloud.openfeign>2.1.0.RELEASE</springcloud.openfeign>
+		<swagger.version>2.5.0</swagger.version>
+		<java.servlet>4.0.0</java.servlet>
+		<java.admin>2.0.2</java.admin>
+		<java.actuator>2.0.2.RELEASE</java.actuator>
+		<cloud.zipkin>2.0.0.RELEASE</cloud.zipkin>
+	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+
+	</dependencies>
+
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>org.springframework.cloud</groupId>
+				<artifactId>spring-cloud-dependencies</artifactId>
+				<version>${spring-cloud.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+
+			<dependency>
+				<groupId>org.projectlombok</groupId>
+				<artifactId>lombok</artifactId>
+				<version>${lombok.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-starter-web</artifactId>
+				<version>${springboot.start.web}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>mysql</groupId>
+				<artifactId>mysql-connector-java</artifactId>
+				<version>${mysql.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.mybatis.spring.boot</groupId>
+				<artifactId>mybatis-spring-boot-starter</artifactId>
+				<version>${mybatis.springboot}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>com.alibaba</groupId>
+				<artifactId>druid-spring-boot-starter</artifactId>
+				<version>${druid.springboot}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-starter-jdbc</artifactId>
+				<version>${jdbc.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>com.github.pagehelper</groupId>
+				<artifactId>pagehelper-spring-boot-starter</artifactId>
+				<version>${pagehelper.springboot}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.mybatis.generator</groupId>
+				<artifactId>mybatis-generator-core</artifactId>
+				<version>${mybatis.generator}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>tk.mybatis</groupId>
+				<artifactId>mapper-spring-boot-starter</artifactId>
+				<version>${mapper.springboot}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-starter-data-redis</artifactId>
+				<version>${springboot.redis}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.springframework.cloud</groupId>
+				<artifactId>spring-cloud-starter-bus-amqp</artifactId>
+				<version>${springcloud.bus}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-starter-actuator</artifactId>
+				<version></version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.codehaus.janino</groupId>
+				<artifactId>janino</artifactId>
+				<version>${logback.condition}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.springframework.cloud</groupId>
+				<artifactId>spring-cloud-starter-openfeign</artifactId>
+				<version>${springcloud.openfeign}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>io.springfox</groupId>
+				<artifactId>springfox-swagger2</artifactId>
+				<version>${swagger.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>io.springfox</groupId>
+				<artifactId>springfox-swagger-ui</artifactId>
+				<version>${swagger.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>javax.servlet</groupId>
+				<artifactId>javax.servlet-api</artifactId>
+				<version>${java.servlet}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>de.codecentric</groupId>
+				<artifactId>spring-boot-admin-starter-server</artifactId>
+				<version>${java.admin}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-starter-actuator</artifactId>
+				<version>${java.actuator}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>de.codecentric</groupId>
+				<artifactId>spring-boot-admin-starter-client</artifactId>
+				<version>${java.admin}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>de.codecentric</groupId>
+				<artifactId>spring-boot-admin-server-ui</artifactId>
+				<version>${java.admin}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-starter-security</artifactId>
+				<version>${java.actuator}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.springframework.cloud</groupId>
+				<artifactId>spring-cloud-starter-zipkin</artifactId>
+				<version>${cloud.zipkin}</version>
+			</dependency>
+
+		</dependencies>
+
+	</dependencyManagement>
+
+	<!--暂时还没测试-->
+	<profiles>
+		<profile>
+			<id>dev</id>
+			<properties>
+				<!-- 环境标识，需要与配置文件的名称相对应 -->
+				<activatedProperties>dev</activatedProperties>
+			</properties>
+			<activation>
+				<!-- 默认环境 -->
+				<activeByDefault>true</activeByDefault>
+			</activation>
+		</profile>
+		<profile>
+			<id>sit</id>
+			<properties>
+				<activatedProperties>sit</activatedProperties>
+			</properties>
+		</profile>
+		<profile>
+			<id>uat</id>
+			<properties>
+				<activatedProperties>uat</activatedProperties>
+			</properties>
+		</profile>
+		<profile>
+			<id>prod</id>
+			<properties>
+				<activatedProperties>prod</activatedProperties>
+			</properties>
+		</profile>
+	</profiles>
+
+<!--	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+		</plugins>
+	</build>-->
+
+</project>

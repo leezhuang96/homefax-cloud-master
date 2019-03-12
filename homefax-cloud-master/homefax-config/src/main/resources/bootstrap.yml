@@ -1,0 +1,32 @@
+server:
+  port: 8081
+
+spring:
+  application:
+    name: homefax-config
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/1091478765/springCloud-config
+          username: 1091478765
+          password: ll1993223
+          #远程配置文件拉取到本地的文件路径
+          #basedir: "C:\Users\VULCAN\Desktop"
+      label: master
+eureka:
+  client:
+    service-url:
+    #  defaultZone: http://129.211.13.217:8761/eureka/
+      defaultZone: http://localhost:8761/eureka/
+
+#暴露远程手动刷新配置接口
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: always
+

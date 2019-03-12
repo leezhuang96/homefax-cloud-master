@@ -1,0 +1,15 @@
+server:
+  port: 8761
+spring:
+  application:
+    name: homefax-eureka
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+      #defaultZone: http://129.211.13.217:8761/eureka/
+    register-with-eureka: false
+    fetch-registry: false
+  server:
+    enable-self-preservation: false

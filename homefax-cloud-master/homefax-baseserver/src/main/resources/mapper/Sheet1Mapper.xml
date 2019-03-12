@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.homefax.baseserver.dao.Sheet1Mapper" >
+  <resultMap id="BaseResultMap" type="com.homefax.model.user.Sheet1" >
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <result column="time" property="time" jdbcType="VARCHAR" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="C" property="c" jdbcType="VARCHAR" />
+    <result column="D" property="d" jdbcType="VARCHAR" />
+    <result column="E" property="e" jdbcType="VARCHAR" />
+    <result column="F" property="f" jdbcType="VARCHAR" />
+    <result column="G" property="g" jdbcType="VARCHAR" />
+    <result column="H" property="h" jdbcType="VARCHAR" />
+    <result column="I" property="i" jdbcType="VARCHAR" />
+    <result column="J" property="j" jdbcType="VARCHAR" />
+    <result column="K" property="k" jdbcType="VARCHAR" />
+    <result column="L" property="l" jdbcType="VARCHAR" />
+    <result column="M" property="m" jdbcType="VARCHAR" />
+    <result column="N" property="n" jdbcType="VARCHAR" />
+    <result column="O" property="o" jdbcType="VARCHAR" />
+    <result column="P" property="p" jdbcType="VARCHAR" />
+    <result column="Q" property="q" jdbcType="VARCHAR" />
+    <result column="R" property="r" jdbcType="VARCHAR" />
+    <result column="S" property="s" jdbcType="VARCHAR" />
+    <result column="T" property="t" jdbcType="VARCHAR" />
+    <result column="U" property="u" jdbcType="VARCHAR" />
+    <result column="V" property="v" jdbcType="VARCHAR" />
+    <result column="W" property="w" jdbcType="VARCHAR" />
+    <result column="X" property="x" jdbcType="VARCHAR" />
+    <result column="Y" property="y" jdbcType="VARCHAR" />
+    <result column="Z" property="z" jdbcType="VARCHAR" />
+    <result column="AA" property="aa" jdbcType="VARCHAR" />
+    <result column="AB" property="ab" jdbcType="VARCHAR" />
+  </resultMap>
+</mapper>

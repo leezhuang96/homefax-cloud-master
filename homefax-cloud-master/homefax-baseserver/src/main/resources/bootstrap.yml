@@ -1,0 +1,104 @@
+server:
+  port: 8083
+
+spring:
+  application:
+    name: homefax-baseserver
+  cloud:
+    config:
+      discovery:
+        enabled: true
+        service-id: homefax-config
+      profile: dev
+
+############ 数据源配置#############
+  datasource:
+    url: jdbc:mysql://129.211.13.217:3306/homefax-cloud?serverTimezone=UTC&nullNamePatternMatchesAll=true&characterEncoding=utf8&useSSL=true
+    username: root
+    password: 123456
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    druid:
+      initial-size: 1
+      min-idle: 1
+      max-active: 20
+      test-on-borrow: true
+      stat-view-servlet:
+        allow: true
+    # 使用druid数据源
+    type: com.alibaba.druid.pool.DruidDataSource
+    filters: stat
+    maxActive: 20
+    initialSize: 1
+    maxWait: 60000
+    minIdle: 1
+    timeBetweenEvictionRunsMillis: 60000
+    minEvictableIdleTimeMillis: 300000
+    validationQuery: select 'x'
+    testWhileIdle: true
+    testOnBorrow: false
+    testOnReturn: false
+    poolPreparedStatements: true
+    maxOpenPreparedStatements: 20
+##################### reids配置
+  redis:
+    database: 1
+    host: 129.211.13.217
+    port: 6379
+    encode: UTF-8
+    timeout: 6000
+    jedis:
+      pool:
+        max-active: 100
+        max-wait: -1
+        max-idle: 8
+        min-idle: 5
+        ################# RabbitMq配置
+  zipkin:
+    base-url: http://129.211.13.217:9411
+  sleuth:
+    sampler:
+      probability: 1.0
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+      #defaultZone: http://129.211.13.217:8761/eureka/
+
+ribbon:
+  eureka:
+    enabled: true
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: always
+
+mybatis:
+  mapper-locations: classpath:mapper/*.xml  #注意：一定要对应mapper映射xml文件的所在路径
+  type-aliases-package: com.homefax.model.*  # 注意：对应实体类的路径
+
+# 通用 Mapper 配置
+#mapper:
+#  mappers: com.homefax.baseserver.dao
+#  not-empty: false
+#  identity: MYSQL
+
+# 分页插件配置
+pagehelper:
+  helperDialect: mysql
+  reasonable: true
+  supportMethodsArguments: true
+  params=count: countSql
+
+logback:
+  #非开发环境是否开启控制台日志
+  enableConsoleLogWhenNotInDev: false
+  #**日志文件存放目录，目录后面无需再加"/"。备注如果这项不配置，则不输出日志文件
+  logFileDir: /acc-Log
+
+
+

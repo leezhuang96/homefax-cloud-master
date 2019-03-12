@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.homefax.baseserver.dao.UserMapper">
+  <resultMap id="BaseResultMap" type="com.homefax.model.user.User">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <result column="uuid" jdbcType="VARCHAR" property="uuid" />
+    <result column="birthday" jdbcType="TIMESTAMP" property="birthday" />
+    <result column="gender" jdbcType="VARCHAR" property="gender" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+  </resultMap>
+
+    <!--
+      WARNING - @mbg.generated
+    -->
+
+</mapper>
